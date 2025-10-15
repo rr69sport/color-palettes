@@ -1,65 +1,101 @@
-:root {
-  /* Colors */
-  --dark-color: #1f2431;
-  --light-color: #eef0f3;
-
-  --gap: 1rem;
-  --border-radius: 4px;
-  --max-width: 1200px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --main-color: #208ff7;
-    --bg-color: var(--dark-color);
-    --text-color: var(--light-color);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --main-color: #063cd1;
-    --bg-color: var(--light-color);
-    --text-color: var(--dark-color);
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-}
-
-h1 {
-  text-align: center;
-  color: var(--main-color);
-  font-size: 3rem;
-}
-
-article {
   max-width: var(--max-width);
   margin-right: auto;
   margin-left: auto;
-  border-radius: var(--border-radius);
+}
+
+/* Color Palette */
+.color-palette {
+  --primary-color: var(--main-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  background-color: color-mix(in oklab, var(--text-color), transparent 95%);
+}
+
+.color-palette__color {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 16 / 9;
   padding: var(--gap);
-  padding-top: 0;
-  background-color: color-mix(in srgb, var(--text-color), transparent 95%);
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: color-mix(in srgb, var(--primary-color) var(--percetage-color), var(--secondary-color));
 }
 
-code {
-  color: var(--main-color);
+.color\[alpha\] {
+  --secondary-color: transparent;
 }
 
-ul {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
+.color\[lighten\] {
+  --secondary-color: var(--text-color);
+}
+
+.color\[darken\] {
+  --secondary-color: var(--bg-color);
+}
+
+.color\[alpha\]::after,
+.color\[lighten\]::after,
+.color\[darken\]::after {
+  content: attr(data-percentage) " del color";
+  position: absolute;
+  padding: var(--gap);
+  background-color: var(--primary-color);
+}
+
+.lighten\[100\],
+.alpha\[100\],
+.darken\[100\] {
+  --percetage-color: 100%;
+}
+
+.lighten\[75\],
+.alpha\[75\],
+.darken\[75\] {
+  --percetage-color: 75%;
+}
+
+.lighten\[50\],
+.alpha\[50\],
+.darken\[50\] {
+  --percetage-color: 50%;
+}
+
+.lighten\[25\],
+.alpha\[25\],
+.darken\[25\] {
+  --percetage-color: 25%;
+}
+
+/* Utils */
+.range-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+  margin-top: var(--gap);
+
+}
+
+.range-container input[type="range"] {
+  flex: 1;
+}
+
+.range-container span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pattern {
+  --bg-size: 60px;
+  background-color: var(--light-color);
+  opacity: 0.8;
+  background-image: repeating-linear-gradient(45deg, var(--primary-color) 25%, transparent 25%, transparent 75%, var(--primary-color) 75%, var(--primary-color)),
+    repeating-linear-gradient(45deg, var(--primary-color) 25%, var(--light-color) 25%, var(--light-color) 75%, var(--primary-color) 75%, var(--primary-color));
+  background-position: 0 0, calc(var(--bg-size) / 2) calc(var(--bg-size) / 2);
+  background-size: var(--bg-size) var(--bg-size);
 }

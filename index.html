@@ -3,26 +3,46 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Vanila</title>
+  <title>Generador de paleta de colores</title>
+  <link rel="stylesheet" href="https://rr69sport.github.io/css/styles.css">
   <link rel="stylesheet" href="./css/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="module" src="./js/scripts.js"></script>
 </head>
 
 <body>
-  <!-- Puedes borrar este contenido y reemplazarlo por tu propio contenido -->
-  <article>
-    <h1>Vanila</h1>
-    <p>Este es un template con archivos y configuraciones básicas de ESLint y Prettier para iniciar un proyecto vanila.</p>
-    <p>El proyecto incluye:</p>
-    <ul>
-      <li>Un archivo HTML básico en <code>./index.html</code></li>
-      <li>Un archivo CSS básico en <code>./css/styles.css</code></li>
-      <li>Un archivo JS básico en <code>./js/scripts.js</code></li>
-      <li>Un archivo de configuración para ESLint en <code>./.eslintrc.json</code></li>
-      <li>Un archivo de configuración para Prettier en <code>./.prettierrc.json</code></li>
+  <header>
+    <h1>Generador de paleta de colores</h1>
+  </header>
+  <main>
+    <ul class="color-palette">
+      <li data-percentage="100%" class="color-palette__color color[lighten] lighten[100]"></li>
+      <li data-percentage="75%" class="color-palette__color color[lighten] lighten[75]"></li>
+      <li data-percentage="50%" class="color-palette__color color[lighten] lighten[50]"></li>
+      <li data-percentage="25%" class="color-palette__color color[lighten] lighten[25]"></li>
     </ul>
-  </article>
+    <ul class="color-palette pattern">
+      <li data-percentage="100%" class="color-palette__color color[alpha] alpha[100]"></li>
+      <li data-percentage="75%" class="color-palette__color color[alpha] alpha[75]"></li>
+      <li data-percentage="50%" class="color-palette__color color[alpha] alpha[50]"></li>
+      <li data-percentage="25%" class="color-palette__color color[alpha] alpha[25]"></li>
+    </ul>
+    <ul class="color-palette">
+      <li data-percentage="100%" class="color-palette__color color[darken] darken[100]"></li>
+      <li data-percentage="75%" class="color-palette__color color[darken] darken[75]"></li>
+      <li data-percentage="50%" class="color-palette__color color[darken] darken[50]"></li>
+      <li data-percentage="25%" class="color-palette__color color[darken] darken[25]"></li>
+    </ul>
+  </main>
+  <footer>
+    <h2>Próximos pasos</h2>
+    <ul>
+      <li>Añadir opción para elegir color principal</li>
+      <li>Añadir opción para elegir color que aclare el principal</li>
+      <li>Añadir opción que oscurezca el color principal</li>
+      <li>Añadir opción que le de transparencia al color principal</li>
+    </ul>
+  </footer>
 </body>
 
 </html>
